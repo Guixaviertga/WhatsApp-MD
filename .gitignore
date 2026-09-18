@@ -9,7 +9,6 @@ config.json
 npm-debug.log*
 .DS_Store
 tmp/
-data/stickers-cache/
 
 # Plugins externos instalados em runtime (via Gist etc.), exceto os
 # arquivos que mantêm a pasta versionada.

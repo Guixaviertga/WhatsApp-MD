@@ -5,7 +5,7 @@ Bot de WhatsApp completo em **Node.js**, construído sobre [Baileys](https://git
 ## Recursos já implementados
 
 - 🧩 **Multi-sessão** — gerencia várias contas de WhatsApp ao mesmo tempo, cada uma com credenciais e estado totalmente isolados (`sessions/<id>/`), sem uma interferir na outra.
-- 💬 **Respostas automáticas** em duas camadas: presets globais (`data/replies.json`) e filtros customizados por chat, persistidos em `lib/db/filter.js` (prontos para um futuro comando `.filter`).
+- 💬 **Respostas automáticas** por palavra-chave, customizadas por chat e persistidas em `lib/db/filter.js` (pronto para um futuro comando `.filter`).
 - 🌐 **13 idiomas** prontos em `lang/`: `pt`, `en`, `es`, `hi`, `ar`, `fr`, `bn`, `id`, `ml`, `ru`, `tr`, `ur`, `zh`. Idioma padrão configurável, trocável por chat com `.lang <código>`.
 - 👀 **Visualização automática de status** dos contatos.
 - ✅ **Confirmação automática de leitura** das mensagens recebidas.
@@ -44,7 +44,7 @@ lib/                      # núcleo do bot
 ├── store.js                      # cache em memória (contatos, metadados de grupo)
 ├── config.js                      # re-exporta o config.js da raiz
 ├── lang.js                         # carregador de traduções (lang/*.json)
-├── media.js, ffmpeg.js, stickerMaker.js, stickerPack.js, presets.js, logger.js
+├── media.js, ffmpeg.js, stickerMaker.js, stickerPack.js, logger.js
 │
 ├── class/
 │   ├── Base.js, Message.js, ReplyMessage.js, Wcg.js, index.js
@@ -63,7 +63,6 @@ lang/                    # pt, en, es, hi, ar, fr, bn, id, ml, ru, tr, ur, zh
 media/
 ├── banFolder/, goodFolder/, welFolder/   # imagens usadas pelo bot
 
-data/replies.json        # presets globais de resposta automática
 sessions/                # credenciais de cada sessão (gerado automaticamente)
 database/                # db.json do lowdb (gerado automaticamente)
 ```
@@ -104,7 +103,7 @@ Use `.env` **ou** `config.json` (o `.env` tem prioridade se os dois existirem �
 | `AUTO_VIEW_STATUS` | Visualização automática de status | `true` |
 | `AUTO_REACT_STATUS` | Reagir automaticamente aos status vistos | `false` |
 | `AUTO_REJECT_CALLS` | Rejeitar chamadas automaticamente | `true` |
-| `AUTO_REPLY_ENABLED` | Ativa as respostas automáticas (filtros + presets) | `true` |
+| `AUTO_REPLY_ENABLED` | Ativa as respostas automáticas por palavra-chave (filtros por chat) | `true` |
 | `STICKER_PACK_NAME` / `STICKER_PACK_AUTHOR` | Metadados padrão das figurinhas | `Levanter-MD` / `Meu Bot` |
 | `API_ENABLED` / `API_PORT` | Liga o esqueleto de API HTTP (`lib/api.js`, ainda sem rotas) | `false` / `3000` |
 | `LOG_LEVEL` | Nível de log do bot (`trace`, `debug`, `info`, `warn`, `error`) | `info` |
@@ -219,7 +218,7 @@ A saída padrão é uma linha curta por evento, pensada para caber na tela do ce
 
 ```
 19:24:57 handle   msg em grupo de=Gui tipo=texto n=12
-19:24:57 handle   resposta automática origem=preset
+19:24:57 handle   resposta automática
 19:24:57 cmd      executado cmd=ping de=Gui ms=266
 19:24:57 cmd      WARN recusado: só o dono cmd=desligar de=João
 19:24:58 sticker  figurinha criada ms=412 kb=38
@@ -261,19 +260,14 @@ A estrutura já está pronta para receber, quando você quiser:
 
 ## Personalizando respostas automáticas
 
-Edite `data/replies.json` (presets globais, valem para todos os chats). Cada regra tem `keywords` e:
+Cada chat tem seus próprios filtros por palavra-chave, persistidos em `lib/db/filter.js`. Hoje só dá para cadastrar via código/console (não existe comando `.filter` ainda):
 
-- `key`: referencia uma chave já traduzida em `lang/*.json`, **ou**
-- `replies`: um objeto com o texto pronto em cada idioma.
-
-```json
-{
-  "keywords": ["preço", "price"],
-  "replies": { "pt": "Consulte nossa tabela...", "en": "Check our price list..." }
-}
+```js
+const filterDb = require('./lib/db/filter');
+filterDb.add('5511999999999@s.whatsapp.net', { keywords: ['preço', 'price'], reply: 'Consulte nossa tabela...' });
 ```
 
-Filtros específicos por chat (mais dinâmicos, sobrepõem os presets) ficam em `lib/db/filter.js` — hoje só via código/console, até que um comando `.filter` seja adicionado.
+`findMatch(chatId, texto)` procura, nos filtros daquele chat, algum cujas `keywords` apareçam no texto recebido (case-insensitive) e devolve o `reply` do primeiro que bater.
 
 ## Adicionando um novo idioma
 

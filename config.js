@@ -116,7 +116,6 @@ const config = {
   logMessageContent: toBool(pick('LOG_MESSAGE_CONTENT'), false),
 
   sessionsDir: path.join(process.cwd(), 'sessions'),
-  dataDir: path.join(process.cwd(), 'data'),
   databaseDir: path.join(process.cwd(), 'database'),
   mediaDir: path.join(process.cwd(), 'media'),
 };
