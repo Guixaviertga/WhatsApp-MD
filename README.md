@@ -184,6 +184,14 @@ Todo envio passa por retentativa automática (`lib/sendMessage.js`), então plug
 2. **A descrição do comando é a chave `cmd_<nome>_desc`.** O `.menu` lê de lá — não existe campo `description` no plugin.
 3. **Ao criar um comando, adicione as chaves novas nos 13 arquivos de `lang/`.** Se faltar em algum idioma, o `lang.t` cai para o inglês e, se também faltar, mostra o nome da chave.
 
+## Processamento de mensagens
+
+Cada conversa tem a sua própria fila (`lib/queue.js`): **conversas diferentes são processadas em paralelo, mas a ordem é mantida dentro de cada uma**.
+
+Isso importa porque tarefas pesadas existem — criar uma figurinha leva alguns segundos. Com processamento em série, essa figurinha segurava as mensagens de todos os outros chats; com a fila por conversa, só a própria conversa espera. A ordem dentro do chat continua garantida, o que a coleta do `.pack` exige.
+
+A chave da fila inclui a sessão (`sessao:chat`), então duas contas que enxergam o mesmo grupo não entram na fila uma da outra.
+
 ## Logs
 
 A saída padrão é uma linha curta por evento, pensada para caber na tela do celular:
