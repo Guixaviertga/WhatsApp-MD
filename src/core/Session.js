@@ -17,6 +17,7 @@ const { registerAutoRejectCall } = require('../features/autoRejectCall');
 const packSession = require('../features/stickerPackSession');
 const { extractMediaTarget, downloadMessageMedia } = require('../utils/media');
 const { createSticker } = require('../features/stickerMaker');
+const { sendWithRetry } = require('../utils/safeSend');
 
 function extractText(message) {
   const m = message.message;
@@ -53,6 +54,18 @@ class Session {
       logger: this.logger.child({ lib: 'baileys' }),
       printQRInTerminal: false,
       browser: [`WhatsApp-MD (${this.sessionId})`, 'Chrome', '1.0.0'],
+      // Conexões móveis (Termux/4G) costumam ser mais lentas e instáveis do
+      // que uma rede de servidor; timeouts maiores evitam que a sincronização
+      // inicial (e, por consequência, o estabelecimento da sessão de
+      // criptografia com cada contato) falhe por "Timed Out" prematuramente.
+      defaultQueryTimeoutMs: 120_000,
+      connectTimeoutMs: 60_000,
+      keepAliveIntervalMs: 25_000,
+      // Não precisamos do histórico completo de conversas para um bot de
+      // respostas automáticas — pular essa sincronização deixa a conexão
+      // inicial mais leve e rápida em redes ruins.
+      syncFullHistory: false,
+      markOnlineOnConnect: false,
     });
 
     this.sock = sock;
@@ -156,7 +169,7 @@ class Session {
     if (config.autoReplyEnabled) {
       const reply = findReply(chatId, text);
       if (reply) {
-        await sock.sendMessage(chatId, { text: reply }, { quoted: message });
+        await sendWithRetry(sock, chatId, { text: reply }, { quoted: message });
       }
     }
   }
@@ -172,7 +185,7 @@ class Session {
     }));
 
     if (stickerBuffer) {
-      await this.sock.sendMessage(chatId, { sticker: stickerBuffer });
+      await sendWithRetry(this.sock, chatId, { sticker: stickerBuffer });
       packSession.increment(chatId);
     }
   }

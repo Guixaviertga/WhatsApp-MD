@@ -1,4 +1,5 @@
 const i18n = require('../i18n');
+const { sendWithRetry } = require('../utils/safeSend');
 
 module.exports = {
   name: 'ping',
@@ -13,6 +14,6 @@ module.exports = {
   async execute({ sock, chatId, message }) {
     const sentAt = Number(message.messageTimestamp) * 1000;
     const ms = Date.now() - sentAt;
-    await sock.sendMessage(chatId, { text: i18n.t(chatId, 'cmd_ping', { ms }) }, { quoted: message });
+    await sendWithRetry(sock, chatId, { text: i18n.t(chatId, 'cmd_ping', { ms }) }, { quoted: message });
   },
 };

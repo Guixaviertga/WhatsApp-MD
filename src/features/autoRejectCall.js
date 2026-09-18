@@ -1,6 +1,7 @@
 const { createLogger } = require('../utils/logger');
 const config = require('../config/env');
 const i18n = require('../i18n');
+const { sendWithRetry } = require('../utils/safeSend');
 
 const logger = createLogger('autoRejectCall');
 
@@ -21,7 +22,7 @@ function registerAutoRejectCall(sock) {
 
         if (config.callRejectMessageKey) {
           const text = i18n.t(call.from, config.callRejectMessageKey);
-          await sock.sendMessage(call.from, { text });
+          await sendWithRetry(sock, call.from, { text });
         }
       } catch (err) {
         logger.error({ err }, 'Failed to reject call');

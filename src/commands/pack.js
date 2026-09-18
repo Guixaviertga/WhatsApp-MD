@@ -1,6 +1,7 @@
 const i18n = require('../i18n');
 const config = require('../config/env');
 const packSession = require('../features/stickerPackSession');
+const { sendWithRetry } = require('../utils/safeSend');
 
 const STOP_WORDS = ['fim', 'end', 'stop', 'done', 'parar'];
 
@@ -22,13 +23,14 @@ module.exports = {
       const text = session
         ? `✅ ${session.packName}: ${session.count} figurinha(s) criada(s).`
         : i18n.t(chatId, 'cmd_stickerpack_usage', { prefix });
-      await sock.sendMessage(chatId, { text }, { quoted: message });
+      await sendWithRetry(sock, chatId, { text }, { quoted: message });
       return;
     }
 
     const packName = args.join(' ').trim();
     if (!packName) {
-      await sock.sendMessage(
+      await sendWithRetry(
+        sock,
         chatId,
         { text: i18n.t(chatId, 'cmd_stickerpack_usage', { prefix }) },
         { quoted: message },
@@ -37,7 +39,8 @@ module.exports = {
     }
 
     packSession.start(chatId, packName, senderName || config.stickerPackAuthor);
-    await sock.sendMessage(
+    await sendWithRetry(
+      sock,
       chatId,
       {
         text: `📦 Pacote "*${packName}*" iniciado! Envie as imagens/vídeos agora.\n`

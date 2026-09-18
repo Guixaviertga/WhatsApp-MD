@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const i18n = require('../i18n');
 const { createLogger } = require('../utils/logger');
+const { sendWithRetry } = require('../utils/safeSend');
 
 const logger = createLogger('commands');
 
@@ -41,7 +42,8 @@ async function handleCommand(ctx) {
 
   const command = byName.get(parsed.commandName);
   if (!command) {
-    await ctx.sock.sendMessage(
+    await sendWithRetry(
+      ctx.sock,
       ctx.chatId,
       { text: i18n.t(ctx.chatId, 'cmd_unknown', { prefix: ctx.prefix }) },
       { quoted: ctx.message },

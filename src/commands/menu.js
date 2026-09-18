@@ -1,5 +1,6 @@
 const i18n = require('../i18n');
 const config = require('../config/env');
+const { sendWithRetry } = require('../utils/safeSend');
 
 module.exports = {
   name: 'menu',
@@ -26,6 +27,6 @@ module.exports = {
       i18n.t(chatId, 'menu_footer', { prefix: config.botPrefix }),
     ].join('\n');
 
-    await sock.sendMessage(chatId, { text }, { quoted: message });
+    await sendWithRetry(sock, chatId, { text }, { quoted: message });
   },
 };

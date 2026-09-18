@@ -1,4 +1,5 @@
 const i18n = require('../i18n');
+const { sendWithRetry } = require('../utils/safeSend');
 
 module.exports = {
   name: 'lang',
@@ -14,7 +15,8 @@ module.exports = {
     const available = i18n.availableLanguages.join(', ');
 
     if (!args[0]) {
-      await sock.sendMessage(
+      await sendWithRetry(
+        sock,
         chatId,
         { text: i18n.t(chatId, 'cmd_lang_usage', { prefix, available }) },
         { quoted: message },
@@ -24,7 +26,8 @@ module.exports = {
 
     const code = args[0].toLowerCase();
     if (!i18n.isSupported(code)) {
-      await sock.sendMessage(
+      await sendWithRetry(
+        sock,
         chatId,
         { text: i18n.t(chatId, 'cmd_lang_invalid', { available }) },
         { quoted: message },
@@ -33,7 +36,8 @@ module.exports = {
     }
 
     i18n.setChatLanguage(chatId, code);
-    await sock.sendMessage(
+    await sendWithRetry(
+      sock,
       chatId,
       { text: i18n.t(chatId, 'cmd_lang_set', { language: code }) },
       { quoted: message },

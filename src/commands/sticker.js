@@ -1,6 +1,7 @@
 const i18n = require('../i18n');
 const { extractMediaTarget, downloadMessageMedia } = require('../utils/media');
 const { createSticker } = require('../features/stickerMaker');
+const { sendWithRetry } = require('../utils/safeSend');
 
 module.exports = {
   name: 'sticker',
@@ -15,7 +16,8 @@ module.exports = {
   async execute({ sock, chatId, message, prefix }) {
     const target = extractMediaTarget(message);
     if (!target) {
-      await sock.sendMessage(
+      await sendWithRetry(
+        sock,
         chatId,
         { text: i18n.t(chatId, 'cmd_sticker_usage', { prefix }) },
         { quoted: message },
@@ -23,16 +25,16 @@ module.exports = {
       return;
     }
 
-    await sock.sendMessage(chatId, { text: i18n.t(chatId, 'cmd_sticker_processing') }, { quoted: message });
+    await sendWithRetry(sock, chatId, { text: i18n.t(chatId, 'cmd_sticker_processing') }, { quoted: message });
 
     const buffer = await downloadMessageMedia(sock, target);
     const stickerBuffer = buffer && (await createSticker(buffer));
 
     if (!stickerBuffer) {
-      await sock.sendMessage(chatId, { text: i18n.t(chatId, 'cmd_sticker_error') }, { quoted: message });
+      await sendWithRetry(sock, chatId, { text: i18n.t(chatId, 'cmd_sticker_error') }, { quoted: message });
       return;
     }
 
-    await sock.sendMessage(chatId, { sticker: stickerBuffer }, { quoted: message });
+    await sendWithRetry(sock, chatId, { sticker: stickerBuffer }, { quoted: message });
   },
 };
