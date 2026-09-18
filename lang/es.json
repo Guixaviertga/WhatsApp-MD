@@ -14,5 +14,14 @@
   "cmd_unknown": "❓ Comando no reconocido. Envía {prefix}menu para ver la lista de comandos.",
   "call_rejected": "📵 Las llamadas de voz/video no son atendidas por este número automatizado. Envía un mensaje de texto.",
   "welcome_message": "👋 ¡Bienvenido/a, {user}! Qué bueno tenerte en {group}.",
-  "goodbye_message": "😢 {user} salió de {group}. ¡Hasta pronto!"
+  "goodbye_message": "😢 {user} salió de {group}. ¡Hasta pronto!",
+  "cmd_menu_desc": "Muestra este menú de comandos",
+  "cmd_ping_desc": "Comprueba si el bot está en línea",
+  "cmd_lang_desc": "Cambia el idioma de este chat (ej: .lang en)",
+  "cmd_sticker_desc": "Crea una figurita a partir de una imagen/video",
+  "cmd_pack_desc": "Crea un paquete de figuritas: .pack <nombre> para iniciar, .pack fim para terminar",
+  "cmd_owner_only": "🔒 Solo el dueño del bot puede usar este comando.",
+  "cmd_group_only": "👥 Este comando solo funciona en grupos.",
+  "cmd_pack_started": "📦 ¡Paquete \"*{pack}*\" iniciado! Envía las imágenes/videos ahora.\nCuando termines, envía \"{prefix}pack fim\".",
+  "cmd_pack_finished": "✅ {pack}: {count} figurita(s) creada(s)."
 }

@@ -14,5 +14,14 @@
   "cmd_unknown": "❓ Bilinmeyen komut. Komut listesini görmek için {prefix}menu gönderin.",
   "call_rejected": "📵 Bu otomatik numara sesli/görüntülü aramalara cevap vermiyor. Lütfen bir metin mesajı gönderin.",
   "welcome_message": "👋 Hoş geldin, {user}! {group} grubunda seni görmek güzel.",
-  "goodbye_message": "😢 {user}, {group} grubundan ayrıldı. Görüşmek üzere!"
+  "goodbye_message": "😢 {user}, {group} grubundan ayrıldı. Görüşmek üzere!",
+  "cmd_menu_desc": "Bu komut menüsünü gösterir",
+  "cmd_ping_desc": "Botun çevrimiçi olup olmadığını kontrol eder",
+  "cmd_lang_desc": "Bu sohbetin dilini değiştirir (örn: .lang en)",
+  "cmd_sticker_desc": "Bir resim/videodan sticker oluşturur",
+  "cmd_pack_desc": "Sticker paketi oluşturur: başlamak için .pack <isim>, bitirmek için .pack fim",
+  "cmd_owner_only": "🔒 Bu komutu yalnızca bot sahibi kullanabilir.",
+  "cmd_group_only": "👥 Bu komut yalnızca gruplarda çalışır.",
+  "cmd_pack_started": "📦 \"*{pack}*\" paketi başladı! Şimdi resimleri/videoları gönderin.\nBitirdiğinizde \"{prefix}pack fim\" gönderin.",
+  "cmd_pack_finished": "✅ {pack}: {count} sticker oluşturuldu."
 }

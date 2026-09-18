@@ -94,6 +94,7 @@ Use `.env` **ou** `config.json` (o `.env` tem prioridade se os dois existirem �
 | Variável | Descrição | Padrão |
 |---|---|---|
 | `SESSION_IDS` | IDs das sessões, separados por vírgula (ex.: `pessoal,trabalho`) | `principal` |
+| `OWNER_NUMBERS` | Números com permissão de dono, separados por vírgula (só dígitos, com DDI). Comandos marcados com `owner: true` só respondem a eles. Vazio = comandos restritos ficam fechados para todos | — |
 | `DEFAULT_LANGUAGE` | Idioma padrão (`pt`, `en`, `es`, `hi`, `ar`, `fr`, `bn`, `id`, `ml`, `ru`, `tr`, `ur`, `zh`) | `pt` |
 | `BOT_PREFIX` | Prefixo dos comandos | `.` |
 | `LOGIN_METHOD` | `qr` ou `pairing` | `qr` |
@@ -127,15 +128,35 @@ Todo arquivo `.js` em `plugins/` (nativos) ou `eplugins/` (instalados depois) é
 ```js
 module.exports = {
   name: 'exemplo',
-  aliases: ['ex'],
-  description: { pt: '...', en: '...', es: '...', hi: '...', ar: '...' },
-  async execute({ sock, chatId, args, message, prefix, allCommands, senderName }) {
-    // ...
+  aliases: ['ex'],     // opcional
+  owner: false,        // opcional: só os números em OWNER_NUMBERS podem usar
+  group: false,        // opcional: só funciona em grupos
+  async execute({ m, reply, args, prefix, sock, allCommands }) {
+    await reply.t('cmd_exemplo_resposta', { nome: m.pushName });
   },
 };
 ```
 
 Um arquivo também pode exportar um **array** de comandos (como `plugins/sticker.js`, que registra `.sticker` e `.pack` juntos).
+
+### O que o plugin recebe
+
+| Campo | O que é |
+|---|---|
+| `m` | A mensagem ([`lib/class/Message.js`](lib/class/Message.js)): `m.text`, `m.chatId`, `m.sender`, `m.isGroup`, `m.pushName`, `m.timestamp`, `m.hasMedia()`, `m.mediaTarget`, `m.raw` |
+| `reply` | Resposta já citando a mensagem ([`lib/class/ReplyMessage.js`](lib/class/ReplyMessage.js)): `reply.t(chave, vars)`, `reply.text()`, `reply.sticker()`, `reply.image()` |
+| `args` | Argumentos do comando, já separados |
+| `prefix` | Prefixo em uso naquele chat |
+| `sock` | A conexão do Baileys, para casos que as classes não cobrem |
+| `allCommands` | Lista de todos os comandos registrados (usada pelo `.menu`) |
+
+Todo envio passa por retentativa automática (`lib/sendMessage.js`), então plugins não precisam tratar falha de rede.
+
+### Regras de padronização
+
+1. **Nenhum texto visível ao usuário dentro do plugin.** Todo texto é uma chave em `lang/*.json` e vai para a tela via `reply.t(chave, vars)`. É isso que garante que o bot funcione nos 13 idiomas.
+2. **A descrição do comando é a chave `cmd_<nome>_desc`.** O `.menu` lê de lá — não existe campo `description` no plugin.
+3. **Ao criar um comando, adicione as chaves novas nos 13 arquivos de `lang/`.** Se faltar em algum idioma, o `lang.t` cai para o inglês e, se também faltar, mostra o nome da chave.
 
 ## Banco de dados (lowdb)
 

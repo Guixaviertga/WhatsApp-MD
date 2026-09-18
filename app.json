@@ -9,6 +9,11 @@
       "description": "IDs das sessões do WhatsApp, separados por vírgula.",
       "value": "principal"
     },
+    "OWNER_NUMBERS": {
+      "description": "Números com permissão de dono, separados por vírgula (só dígitos, com DDI).",
+      "value": "",
+      "required": false
+    },
     "DEFAULT_LANGUAGE": {
       "description": "Idioma padrão: pt, en, es, hi, ar, fr, bn, id, ml, ru, tr, ur ou zh.",
       "value": "pt"

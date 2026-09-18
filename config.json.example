@@ -1,6 +1,7 @@
 {
   "_comment": "Alternativa ao .env — copie para config.json e ajuste. O .env, se existir, sempre tem prioridade sobre este arquivo.",
   "SESSION_IDS": "principal",
+  "OWNER_NUMBERS": "",
   "DEFAULT_LANGUAGE": "pt",
   "BOT_PREFIX": ".",
   "LOGIN_METHOD": "qr",

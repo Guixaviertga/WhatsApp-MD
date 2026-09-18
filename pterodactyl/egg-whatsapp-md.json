@@ -39,6 +39,15 @@
       "rules": "required|string"
     },
     {
+      "name": "OWNER_NUMBERS",
+      "description": "Numeros com permissao de dono, separados por virgula (so digitos, com DDI).",
+      "env_variable": "OWNER_NUMBERS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string"
+    },
+    {
       "name": "DEFAULT_LANGUAGE",
       "description": "Idioma padrao: en, es, hi, ar ou pt.",
       "env_variable": "DEFAULT_LANGUAGE",

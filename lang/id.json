@@ -14,5 +14,14 @@
   "cmd_unknown": "❓ Perintah tidak dikenal. Kirim {prefix}menu untuk melihat daftar perintah.",
   "call_rejected": "📵 Panggilan suara/video tidak dijawab oleh nomor otomatis ini. Silakan kirim pesan teks.",
   "welcome_message": "👋 Selamat datang, {user}! Senang Anda bergabung di {group}.",
-  "goodbye_message": "😢 {user} telah keluar dari {group}. Sampai jumpa!"
+  "goodbye_message": "😢 {user} telah keluar dari {group}. Sampai jumpa!",
+  "cmd_menu_desc": "Menampilkan menu perintah ini",
+  "cmd_ping_desc": "Memeriksa apakah bot sedang online",
+  "cmd_lang_desc": "Mengubah bahasa chat ini (mis: .lang en)",
+  "cmd_sticker_desc": "Membuat stiker dari gambar/video",
+  "cmd_pack_desc": "Membuat paket stiker: .pack <nama> untuk mulai, .pack fim untuk selesai",
+  "cmd_owner_only": "🔒 Hanya pemilik bot yang dapat menggunakan perintah ini.",
+  "cmd_group_only": "👥 Perintah ini hanya berfungsi di grup.",
+  "cmd_pack_started": "📦 Paket \"*{pack}*\" dimulai! Kirim gambar/video sekarang.\nSetelah selesai, kirim \"{prefix}pack fim\".",
+  "cmd_pack_finished": "✅ {pack}: {count} stiker dibuat."
 }

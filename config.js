@@ -48,6 +48,11 @@ function pick(key, fallback) {
 
 const config = {
   sessionIds: toList(pick('SESSION_IDS'), ['principal']),
+
+  // Números com permissão de dono (só dígitos, com DDI). Comandos
+  // marcados com "owner: true" só respondem a estes números.
+  ownerNumbers: toList(pick('OWNER_NUMBERS')).map((n) => n.replace(/\D/g, '')).filter(Boolean),
+
   defaultLanguage: pick('DEFAULT_LANGUAGE', 'pt'),
   botPrefix: pick('BOT_PREFIX', '.'),
   loginMethod: String(pick('LOGIN_METHOD', 'qr')).toLowerCase(),

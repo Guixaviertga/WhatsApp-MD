@@ -14,5 +14,14 @@
   "cmd_unknown": "❓ Commande inconnue. Envoyez {prefix}menu pour voir la liste des commandes.",
   "call_rejected": "📵 Les appels vocaux/vidéo ne sont pas pris en charge par ce numéro automatisé. Veuillez envoyer un message texte.",
   "welcome_message": "👋 Bienvenue, {user} ! Ravi de vous compter dans {group}.",
-  "goodbye_message": "😢 {user} a quitté {group}. À bientôt !"
+  "goodbye_message": "😢 {user} a quitté {group}. À bientôt !",
+  "cmd_menu_desc": "Affiche ce menu de commandes",
+  "cmd_ping_desc": "Vérifie si le bot est en ligne",
+  "cmd_lang_desc": "Change la langue de ce chat (ex : .lang en)",
+  "cmd_sticker_desc": "Crée un sticker à partir d'une image/vidéo",
+  "cmd_pack_desc": "Crée un pack de stickers : .pack <nom> pour démarrer, .pack fim pour terminer",
+  "cmd_owner_only": "🔒 Seul le propriétaire du bot peut utiliser cette commande.",
+  "cmd_group_only": "👥 Cette commande ne fonctionne que dans les groupes.",
+  "cmd_pack_started": "📦 Pack \"*{pack}*\" démarré ! Envoyez les images/vidéos maintenant.\nQuand vous avez terminé, envoyez \"{prefix}pack fim\".",
+  "cmd_pack_finished": "✅ {pack} : {count} sticker(s) créé(s)."
 }

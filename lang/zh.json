@@ -14,5 +14,14 @@
   "cmd_unknown": "❓ 未知命令。发送 {prefix}menu 查看命令列表。",
   "call_rejected": "📵 此自动号码不接听语音/视频通话，请发送文字消息。",
   "welcome_message": "👋 欢迎，{user}！很高兴你加入 {group}。",
-  "goodbye_message": "😢 {user} 已离开 {group}，后会有期！"
+  "goodbye_message": "😢 {user} 已离开 {group}，后会有期！",
+  "cmd_menu_desc": "显示此命令菜单",
+  "cmd_ping_desc": "检查机器人是否在线",
+  "cmd_lang_desc": "更改此聊天的语言（例如 .lang en）",
+  "cmd_sticker_desc": "从图片/视频制作贴纸",
+  "cmd_pack_desc": "创建贴纸包：.pack <名称> 开始，.pack fim 结束",
+  "cmd_owner_only": "🔒 只有机器人所有者可以使用此命令。",
+  "cmd_group_only": "👥 此命令仅在群组中有效。",
+  "cmd_pack_started": "📦 贴纸包\"*{pack}*\"已开始！现在发送图片/视频。\n完成后发送\"{prefix}pack fim\"。",
+  "cmd_pack_finished": "✅ {pack}：已创建 {count} 张贴纸。"
 }
