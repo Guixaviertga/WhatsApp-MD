@@ -125,6 +125,17 @@ npm start
 
 Para evitar que o Android mate o processo, ative "Manter Termux acordado" nas configurações do app e desative a otimização de bateria para o Termux.
 
+### Problema comum: erro ao instalar `sharp` no Termux
+
+O Baileys lista `sharp` como dependência (usada só para gerar miniaturas de preview de imagens) e o `npm` tenta instalá-la automaticamente — mas não existe binário pré-compilado de `sharp`/`libvips` para Android/ARM, e compilar do zero falha no Termux. Este projeto já inclui um arquivo `.npmrc` com `legacy-peer-deps=true`, que evita essa instalação forçada (o Baileys já trata a ausência do `sharp` como opcional). Se mesmo assim o erro aparecer, rode:
+
+```bash
+rm -rf node_modules package-lock.json
+npm install --legacy-peer-deps
+```
+
+A criação de figurinhas deste bot **não depende de `sharp`** — usa apenas `ffmpeg` (que você já deve ter instalado com `pkg install ffmpeg`) e `node-webpmux` (puro JavaScript/WASM, sem compilação nativa).
+
 ---
 
 ## Deploy em painel Pterodactyl
