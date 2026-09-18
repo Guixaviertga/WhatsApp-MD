@@ -2,7 +2,12 @@
   "name": "Levanter-MD",
   "description": "Bot de WhatsApp multi-sessão com respostas automáticas multilíngues, visualização de status, confirmação de leitura, rejeição automática de chamadas e criação de figurinhas.",
   "repository": "https://github.com/Guixaviertga/WhatsApp-MD",
-  "keywords": ["whatsapp", "bot", "baileys", "node"],
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "baileys",
+    "node"
+  ],
   "stack": "container",
   "env": {
     "SESSION_IDS": {
@@ -46,6 +51,11 @@
     "STICKER_PACK_NAME": {
       "description": "Nome padrão do pacote de figurinhas.",
       "value": "Levanter-MD"
+    },
+    "PAIRING_NUMBERS": {
+      "description": "Numero de pareamento por sessao (sessao:numero, separados por virgula). Use quando houver mais de uma sessao.",
+      "value": "",
+      "required": false
     }
   },
   "formation": {

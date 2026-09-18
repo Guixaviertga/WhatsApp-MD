@@ -6,6 +6,7 @@
   "BOT_PREFIX": ".",
   "LOGIN_METHOD": "qr",
   "PAIRING_NUMBER": "",
+  "PAIRING_NUMBERS": "",
   "AUTO_READ_MESSAGES": "true",
   "AUTO_VIEW_STATUS": "true",
   "AUTO_REACT_STATUS": "false",

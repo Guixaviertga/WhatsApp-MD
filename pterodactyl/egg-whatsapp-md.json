@@ -75,6 +75,15 @@
       "rules": "required|string|in:qr,pairing"
     },
     {
+      "name": "PAIRING_NUMBERS",
+      "description": "Numero de pareamento por sessao, formato sessao:numero separado por virgula.",
+      "env_variable": "PAIRING_NUMBERS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string"
+    },
+    {
       "name": "AUTO_READ_MESSAGES",
       "description": "Confirmar leitura automaticamente (true/false).",
       "env_variable": "AUTO_READ_MESSAGES",

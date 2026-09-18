@@ -46,8 +46,37 @@ function pick(key, fallback) {
   return fallback;
 }
 
+/**
+ * Monta o mapa sessão → número de pareamento.
+ *
+ * PAIRING_NUMBERS aceita "sessao:numero" separados por vírgula, que é o
+ * necessário quando há mais de uma conta. PAIRING_NUMBER continua valendo
+ * como forma simples para quem tem só uma sessão.
+ */
+function parsePairingNumbers(raw, single, sessionIds) {
+  const map = {};
+
+  for (const entry of toList(raw)) {
+    const separator = entry.lastIndexOf(':');
+    if (separator < 1) continue;
+    const id = entry.slice(0, separator).trim();
+    const number = entry.slice(separator + 1).replace(/\D/g, '');
+    if (id && number) map[id] = number;
+  }
+
+  // Com uma única sessão, PAIRING_NUMBER não é ambíguo: é dela.
+  const onlyNumber = String(single || '').replace(/\D/g, '');
+  if (onlyNumber && sessionIds.length === 1 && !map[sessionIds[0]]) {
+    map[sessionIds[0]] = onlyNumber;
+  }
+
+  return map;
+}
+
+const sessionIds = toList(pick('SESSION_IDS'), ['principal']);
+
 const config = {
-  sessionIds: toList(pick('SESSION_IDS'), ['principal']),
+  sessionIds,
 
   // Números com permissão de dono (só dígitos, com DDI). Comandos
   // marcados com "owner: true" só respondem a estes números.
@@ -56,7 +85,7 @@ const config = {
   defaultLanguage: pick('DEFAULT_LANGUAGE', 'pt'),
   botPrefix: pick('BOT_PREFIX', '.'),
   loginMethod: String(pick('LOGIN_METHOD', 'qr')).toLowerCase(),
-  pairingNumber: pick('PAIRING_NUMBER', ''),
+  pairingNumbers: parsePairingNumbers(pick('PAIRING_NUMBERS'), pick('PAIRING_NUMBER'), sessionIds),
 
   autoReadMessages: toBool(pick('AUTO_READ_MESSAGES'), true),
   autoViewStatus: toBool(pick('AUTO_VIEW_STATUS'), true),

@@ -15,12 +15,17 @@ async function main() {
   // realmente carregada — ajuda a diagnosticar rapidamente quando o
   // .env/config.json editado não é o que o processo está lendo.
   console.log(`\n🔧 Método de login: ${config.loginMethod}`);
+  console.log(`🔧 Sessões: ${config.sessionIds.join(', ')}`);
+
   if (config.loginMethod === 'pairing') {
-    console.log(
-      config.pairingNumber
-        ? `🔧 Número de pareamento: ${config.pairingNumber}`
-        : '⚠️  LOGIN_METHOD=pairing mas PAIRING_NUMBER está vazio — defina-o no .env/config.json.',
-    );
+    for (const sessionId of config.sessionIds) {
+      const number = config.pairingNumbers[sessionId];
+      console.log(
+        number
+          ? `🔧 Pareamento de "${sessionId}": ${number}`
+          : `⚠️  Sessão "${sessionId}" sem número — defina PAIRING_NUMBERS=${sessionId}:5511999999999`,
+      );
+    }
   }
   console.log('');
 

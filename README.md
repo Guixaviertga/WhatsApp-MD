@@ -98,7 +98,8 @@ Use `.env` **ou** `config.json` (o `.env` tem prioridade se os dois existirem �
 | `DEFAULT_LANGUAGE` | Idioma padrão (`pt`, `en`, `es`, `hi`, `ar`, `fr`, `bn`, `id`, `ml`, `ru`, `tr`, `ur`, `zh`) | `pt` |
 | `BOT_PREFIX` | Prefixo dos comandos | `.` |
 | `LOGIN_METHOD` | `qr` ou `pairing` | `qr` |
-| `PAIRING_NUMBER` | Número para login por código (só com `LOGIN_METHOD=pairing`) | — |
+| `PAIRING_NUMBER` | Número para login por código, quando existe **uma** sessão (só com `LOGIN_METHOD=pairing`) | — |
+| `PAIRING_NUMBERS` | Número por sessão, no formato `sessao:numero` separado por vírgula. Use quando houver mais de uma sessão | — |
 | `AUTO_READ_MESSAGES` | Confirmação automática de leitura | `true` |
 | `AUTO_VIEW_STATUS` | Visualização automática de status | `true` |
 | `AUTO_REACT_STATUS` | Reagir automaticamente aos status vistos | `false` |
@@ -113,6 +114,27 @@ Use `.env` **ou** `config.json` (o `.env` tem prioridade se os dois existirem �
 | `LOG_MESSAGE_CONTENT` | Registrar o texto das mensagens no log (dado pessoal) | `false` |
 
 Cada sessão listada em `SESSION_IDS` roda isolada, em `sessions/<id>/` — apague essa pasta para forçar um novo login daquela sessão.
+
+### Conectando mais de um número
+
+O bot mantém todas as sessões de `SESSION_IDS` conectadas ao mesmo tempo, cada uma com o seu próprio WebSocket e as suas próprias credenciais. Para somar uma conta nova, basta declará-la e vinculá-la **uma vez**:
+
+```bash
+SESSION_IDS=principal,amigo
+```
+
+Depois, escolha como vincular o número novo:
+
+- **QR Code** (`LOGIN_METHOD=qr`): ao iniciar, aparece o QR **apenas da sessão ainda não vinculada** — as já registradas nunca mais pedem login. Serve quando a pessoa está junto de você para escanear.
+- **Código de pareamento** (`LOGIN_METHOD=pairing`): informe um número por sessão, já que cada conta precisa do seu próprio código:
+
+  ```bash
+  PAIRING_NUMBERS=principal:5511999999999,amigo:5521988887777
+  ```
+
+  Ao iniciar, cada sessão gera o seu código, e cada pessoa digita o seu em *Aparelhos conectados → Conectar um aparelho → Conectar com número de telefone*.
+
+Se uma sessão ficar sem número, o bot avisa no console em vez de gerar um código para a conta errada. O vínculo é salvo em disco, então isso é feito uma vez só: nas próximas execuções todas as sessões sobem sozinhas.
 
 ## Comandos disponíveis
 
