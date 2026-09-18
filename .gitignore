@@ -1,0 +1,9 @@
+node_modules/
+sessions/*/
+!sessions/.gitkeep
+.env
+*.log
+npm-debug.log*
+.DS_Store
+tmp/
+data/stickers-cache/

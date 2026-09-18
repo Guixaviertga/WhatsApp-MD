@@ -1,0 +1,105 @@
+{
+  "_comment": "Egg exportado para o painel Pterodactyl. Importe em Admin > Nests > Import Egg.",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-01-01T00:00:00+00:00",
+  "name": "WhatsApp-MD",
+  "author": "guilhermetga2018@gmail.com",
+  "description": "Bot de WhatsApp em Node.js com suporte a multiplas sessoes, respostas automaticas multilingues, visualizacao de status, confirmacao de leitura, rejeicao automatica de chamadas e criacao de figurinhas.",
+  "features": null,
+  "docker_images": {
+    "Node.js 20": "ghcr.io/pterodactyl/yolks:nodejs_20",
+    "Node.js 18": "ghcr.io/pterodactyl/yolks:nodejs_18"
+  },
+  "file_denylist": [],
+  "startup": "npm install && npm start",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"WhatsApp-MD\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/bin/bash\ncd /mnt/server\napt-get update && apt-get install -y ffmpeg || true\nif [ ! -f .env ] && [ -f .env.example ]; then cp .env.example .env; fi\nnpm install\necho 'Instalacao concluida. Edite o .env com suas variaveis e reinicie o servidor.'\n",
+      "container": "node:20-slim",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "SESSION_IDS",
+      "description": "IDs das sessoes do WhatsApp, separados por virgula.",
+      "env_variable": "SESSION_IDS",
+      "default_value": "principal",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string"
+    },
+    {
+      "name": "DEFAULT_LANGUAGE",
+      "description": "Idioma padrao: en, es, hi, ar ou pt.",
+      "env_variable": "DEFAULT_LANGUAGE",
+      "default_value": "pt",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:en,es,hi,ar,pt"
+    },
+    {
+      "name": "BOT_PREFIX",
+      "description": "Prefixo dos comandos do bot.",
+      "env_variable": "BOT_PREFIX",
+      "default_value": ".",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:3"
+    },
+    {
+      "name": "LOGIN_METHOD",
+      "description": "Metodo de login: qr ou pairing.",
+      "env_variable": "LOGIN_METHOD",
+      "default_value": "qr",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:qr,pairing"
+    },
+    {
+      "name": "AUTO_READ_MESSAGES",
+      "description": "Confirmar leitura automaticamente (true/false).",
+      "env_variable": "AUTO_READ_MESSAGES",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false"
+    },
+    {
+      "name": "AUTO_VIEW_STATUS",
+      "description": "Visualizar status automaticamente (true/false).",
+      "env_variable": "AUTO_VIEW_STATUS",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false"
+    },
+    {
+      "name": "AUTO_REJECT_CALLS",
+      "description": "Rejeitar chamadas automaticamente (true/false).",
+      "env_variable": "AUTO_REJECT_CALLS",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:true,false"
+    },
+    {
+      "name": "STICKER_PACK_NAME",
+      "description": "Nome padrao do pacote de figurinhas.",
+      "env_variable": "STICKER_PACK_NAME",
+      "default_value": "WhatsApp-MD",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:60"
+    }
+  ]
+}
