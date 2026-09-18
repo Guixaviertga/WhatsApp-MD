@@ -1,7 +1,19 @@
 const path = require('path');
 const fs = require('fs');
 
-require('dotenv').config({ path: path.join(process.cwd(), '.env') });
+const ENV_PATH = path.join(process.cwd(), '.env');
+const dotenvResult = require('dotenv').config({ path: ENV_PATH });
+
+// Falha silenciosa aqui é a causa nº 1 de "editei o .env e não mudou nada":
+// se o arquivo não existe (ex.: só o config.env.example foi editado, mas
+// nunca copiado para .env), o dotenv simplesmente não carrega nada e tudo
+// cai nos valores padrão, sem nenhum aviso. Deixamos isso visível.
+if (dotenvResult.error && !fs.existsSync(path.join(process.cwd(), 'config.json'))) {
+  console.warn(
+    `⚠️  Nenhum arquivo .env encontrado em ${ENV_PATH} (nem config.json) — usando apenas valores padrão.\n`
+    + '   Crie o .env com: cp config.env.example .env   (e depois edite-o)',
+  );
+}
 
 function toBool(value, fallback = false) {
   if (value === undefined || value === null || value === '') return fallback;
