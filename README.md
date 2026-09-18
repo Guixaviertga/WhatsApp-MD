@@ -1,6 +1,6 @@
 # Levanter-MD
 
-Bot de WhatsApp completo em **Node.js**, construído sobre [Baileys](https://github.com/WhiskeySockets/Baileys) (conexão multi-dispositivo, sem precisar de navegador/Puppeteer), com uma estrutura de projeto inspirada no [Levanter](https://github.com/lyfe00011/levanter): núcleo em `lib/`, comandos em `plugins/` (mais `eplugins/` para plugins instalados em runtime), banco de dados local em `lib/db/`, traduções em `lang/` e mídia em `media/`.
+Bot de WhatsApp completo em **Node.js**, construído sobre [Baileys](https://github.com/WhiskeySockets/Baileys) v7 — pacote `baileys` (conexão multi-dispositivo, sem precisar de navegador/Puppeteer) — com uma estrutura de projeto inspirada no [Levanter](https://github.com/lyfe00011/levanter): núcleo em `lib/`, comandos em `plugins/` (mais `eplugins/` para plugins instalados em runtime), banco de dados local em `lib/db/`, traduções em `lang/` e mídia em `media/`.
 
 ## Recursos já implementados
 
@@ -70,7 +70,7 @@ database/                # db.json do lowdb (gerado automaticamente)
 
 ## Requisitos
 
-- Node.js 18 ou superior
+- **Node.js 22.12 ou superior.** O Baileys é distribuído como ESM, e só a partir do Node 22.12 é possível carregá-lo de um projeto CommonJS como este. Em versões anteriores a inicialização falha com `ERR_REQUIRE_ESM`. Confira com `node -v`.
 - `ffmpeg` instalado no sistema (necessário para figurinhas em vídeo)
 
 ## Instalação local
