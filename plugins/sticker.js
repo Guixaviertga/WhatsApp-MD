@@ -25,7 +25,7 @@ const packCmd = {
   name: 'pack',
   aliases: ['stickerpack'],
   async execute({
-    m, reply, args, prefix,
+    m, reply, args, match, prefix,
   }) {
     const sub = (args[0] || '').toLowerCase();
 
@@ -35,7 +35,7 @@ const packCmd = {
       return reply.t('cmd_pack_finished', { pack: session.packName, count: session.count });
     }
 
-    const packName = args.join(' ').trim();
+    const packName = match.trim();
     if (!packName) return reply.t('cmd_stickerpack_usage', { prefix });
 
     stickerPack.start(m.chatId, packName, m.pushName || config.stickerPackAuthor);

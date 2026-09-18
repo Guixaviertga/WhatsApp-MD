@@ -184,12 +184,15 @@ Um arquivo também pode exportar um **array** de comandos (como `plugins/sticker
 |---|---|
 | `m` | A mensagem ([`lib/class/Message.js`](lib/class/Message.js)): `m.text`, `m.chatId`, `m.sender`, `m.isGroup`, `m.pushName`, `m.timestamp`, `m.hasMedia()`, `m.mediaTarget`, `m.raw` |
 | `reply` | Resposta já citando a mensagem ([`lib/class/ReplyMessage.js`](lib/class/ReplyMessage.js)): `reply.t(chave, vars)`, `reply.text()`, `reply.sticker()`, `reply.image()` |
-| `args` | Argumentos do comando, já separados |
+| `args` | Argumentos do comando, já separados por espaço |
+| `match` | Tudo que veio depois do comando, em uma string só (equivale ao `match` do Levanter) |
 | `prefix` | Prefixo em uso naquele chat |
 | `sock` | A conexão do Baileys, para casos que as classes não cobrem |
 | `allCommands` | Lista de todos os comandos registrados (usada pelo `.menu`) |
 
 Todo envio passa por retentativa automática (`lib/sendMessage.js`), então plugins não precisam tratar falha de rede.
+
+> **Por que não há `pattern` (regex) como no Levanter:** lá cada mensagem testa o regex de todos os comandos até achar um — com 80 plugins, são até 80 regex por mensagem. Aqui um `Map.get(nome)` resolve em uma busca só, independente de quantos plugins existam. O `match` cobre o que o regex do Levanter entregava na prática.
 
 ### Regras de padronização
 

@@ -52,9 +52,10 @@ const add = {
   admin: true,
   botAdmin: true,
   async execute({
-    sock, m, reply, args,
+    sock, m, reply, match,
   }) {
-    const numero = (args[0] || '').replace(/\D/g, '');
+    // Aceita o número colado de qualquer forma: +55 11 99999-9999
+    const numero = match.replace(/\D/g, '');
     if (!numero) return reply.t('cmd_group_invalid_number');
 
     const jid = jidNormalizedUser(`${numero}@s.whatsapp.net`);
