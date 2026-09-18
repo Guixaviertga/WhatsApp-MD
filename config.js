@@ -71,7 +71,20 @@ const config = {
   apiEnabled: toBool(pick('API_ENABLED'), false),
   apiPort: Number(pick('API_PORT', 3000)),
 
+  // ---- Logs ----
   logLevel: pick('LOG_LEVEL', 'info'),
+  // Saída colorida e compacta (ideal no Termux). false = JSON cru, para
+  // painéis que processam os logs automaticamente.
+  logPretty: toBool(pick('LOG_PRETTY'), true),
+  // O Baileys loga cada nó do protocolo; no mesmo nível do bot ele afoga
+  // as mensagens úteis. Por padrão fica silencioso — suba para "warn" ou
+  // "debug" só quando precisar investigar a conexão.
+  baileysLogLevel: pick('BAILEYS_LOG_LEVEL', 'silent'),
+  logToFile: toBool(pick('LOG_TO_FILE'), false),
+  logDir: path.join(process.cwd(), pick('LOG_DIR', 'logs')),
+  logRetentionDays: Number(pick('LOG_RETENTION_DAYS', 7)),
+  // Conteúdo de mensagem é dado pessoal — só entra no log se você pedir.
+  logMessageContent: toBool(pick('LOG_MESSAGE_CONTENT'), false),
 
   sessionsDir: path.join(process.cwd(), 'sessions'),
   dataDir: path.join(process.cwd(), 'data'),

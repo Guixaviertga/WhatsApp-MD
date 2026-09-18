@@ -2,6 +2,7 @@ node_modules/
 sessions/*/
 !sessions/.gitkeep
 database/
+logs/
 .env
 config.json
 *.log

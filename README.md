@@ -106,7 +106,11 @@ Use `.env` **ou** `config.json` (o `.env` tem prioridade se os dois existirem �
 | `AUTO_REPLY_ENABLED` | Ativa as respostas automáticas (filtros + presets) | `true` |
 | `STICKER_PACK_NAME` / `STICKER_PACK_AUTHOR` | Metadados padrão das figurinhas | `Levanter-MD` / `Meu Bot` |
 | `API_ENABLED` / `API_PORT` | Liga o esqueleto de API HTTP (`lib/api.js`, ainda sem rotas) | `false` / `3000` |
-| `LOG_LEVEL` | Nível de log do pino (`info`, `debug`, ...) | `info` |
+| `LOG_LEVEL` | Nível de log do bot (`trace`, `debug`, `info`, `warn`, `error`) | `info` |
+| `LOG_PRETTY` | `true` = saída colorida e compacta; `false` = JSON cru (para painéis) | `true` |
+| `BAILEYS_LOG_LEVEL` | Nível dos logs internos do Baileys — veja abaixo | `silent` |
+| `LOG_TO_FILE` / `LOG_DIR` / `LOG_RETENTION_DAYS` | Salvar os logs em arquivo (um por dia, em JSON) e por quantos dias manter | `false` / `logs` / `7` |
+| `LOG_MESSAGE_CONTENT` | Registrar o texto das mensagens no log (dado pessoal) | `false` |
 
 Cada sessão listada em `SESSION_IDS` roda isolada, em `sessions/<id>/` — apague essa pasta para forçar um novo login daquela sessão.
 
@@ -157,6 +161,37 @@ Todo envio passa por retentativa automática (`lib/sendMessage.js`), então plug
 1. **Nenhum texto visível ao usuário dentro do plugin.** Todo texto é uma chave em `lang/*.json` e vai para a tela via `reply.t(chave, vars)`. É isso que garante que o bot funcione nos 13 idiomas.
 2. **A descrição do comando é a chave `cmd_<nome>_desc`.** O `.menu` lê de lá — não existe campo `description` no plugin.
 3. **Ao criar um comando, adicione as chaves novas nos 13 arquivos de `lang/`.** Se faltar em algum idioma, o `lang.t` cai para o inglês e, se também faltar, mostra o nome da chave.
+
+## Logs
+
+A saída padrão é uma linha curta por evento, pensada para caber na tela do celular:
+
+```
+19:24:57 INFO  handle         mensagem recebida de=5565996218293 chat=privado tipo=texto chars=2
+19:24:57 INFO  handle         resposta automática de=5565996218293 origem=preset
+19:24:57 INFO  cmd            comando executado cmd=ping de=5565996218293 ms=0
+19:24:57 WARN  cmd            recusado: só o dono cmd=desligar de=5599888888888
+19:24:58 INFO  stickerMaker   figurinha criada ms=412 kb=38
+```
+
+Formato: `hora NÍVEL módulo mensagem campos=valor`.
+
+**Por que o log estava poluído antes:** o Baileys registra cada nó do protocolo e recebia o mesmo nível do bot, afogando as linhas úteis. Agora ele tem o seu próprio `BAILEYS_LOG_LEVEL`, que vem `silent`. Para investigar problemas de conexão ou pareamento, suba temporariamente:
+
+```bash
+BAILEYS_LOG_LEVEL=debug npm start
+```
+
+**Arquivo.** Com `LOG_TO_FILE=true`, além da tela os logs vão para `logs/bot-AAAA-MM-DD.log`, sempre em JSON (mesmo com a tela em modo legível), para dar para filtrar depois:
+
+```bash
+grep '"cmd":"ping"' logs/bot-*.log        # todos os .ping
+grep '"level":50' logs/bot-*.log          # só os erros
+```
+
+Arquivos mais antigos que `LOG_RETENTION_DAYS` são apagados quando o bot inicia.
+
+**Privacidade.** O texto das mensagens **não** é registrado por padrão — o log guarda só remetente, tipo e tamanho. Ligue `LOG_MESSAGE_CONTENT=true` apenas se realmente precisar, lembrando que isso grava conversas de terceiros em disco.
 
 ## Banco de dados (lowdb)
 
