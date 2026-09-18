@@ -147,6 +147,17 @@ Se uma sessão ficar sem número, o bot avisa no console em vez de gerar um cód
 | `.pack <nome>` | Inicia a coleta de um pacote de figurinhas personalizado |
 | `.pack fim` | Encerra a coleta e informa quantas figurinhas foram criadas |
 
+### Administração de grupo
+
+Exigem que **quem envia** seja admin do grupo (ou dono do bot) e que o **bot** seja admin:
+
+| Comando | Descrição |
+|---|---|
+| `.kick` | Remove alguém (mencione ou responda). Nunca remove outros admins |
+| `.add <número>` | Adiciona um número ao grupo |
+| `.promote` / `.demote` | Concede ou retira o cargo de administrador |
+| `.close` / `.open` | Fecha (só admins falam) ou abre o grupo |
+
 ## Sistema de plugins
 
 Todo arquivo `.js` em `plugins/` (nativos) ou `eplugins/` (instalados depois) é carregado automaticamente por `lib/cmd.js`. Um plugin exporta:
@@ -157,6 +168,8 @@ module.exports = {
   aliases: ['ex'],     // opcional
   owner: false,        // opcional: só os números em OWNER_NUMBERS podem usar
   group: false,        // opcional: só funciona em grupos
+  admin: false,        // opcional: quem envia precisa ser admin do grupo
+  botAdmin: false,     // opcional: o bot precisa ser admin do grupo
   async execute({ m, reply, args, prefix, sock, allCommands }) {
     await reply.t('cmd_exemplo_resposta', { nome: m.pushName });
   },
