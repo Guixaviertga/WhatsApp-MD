@@ -85,6 +85,8 @@ npm start
 
 Na primeira execução aparece um **QR Code** no terminal (ou um **código de pareamento**, se `LOGIN_METHOD=pairing`). Escaneie com o WhatsApp do celular em *Aparelhos conectados*.
 
+> **Usando `LOGIN_METHOD=pairing`**: é obrigatório definir `PAIRING_NUMBER` (só dígitos, com código do país, ex.: `5511999999999`, sem `+` nem espaços) — sem isso o bot agora avisa no console em vez de ficar em silêncio. Depois de iniciar, espere a mensagem "Conectando ao WhatsApp..." e o código aparecerá logo em seguida (pode levar alguns segundos em conexões mais lentas). No celular: *Aparelhos conectados → Conectar um aparelho → Conectar com número de telefone*.
+
 ## Configuração
 
 Use `.env` **ou** `config.json` (o `.env` tem prioridade se os dois existirem — útil em painéis que só suportam um dos dois formatos).
