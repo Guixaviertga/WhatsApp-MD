@@ -167,14 +167,16 @@ Todo envio passa por retentativa automática (`lib/sendMessage.js`), então plug
 A saída padrão é uma linha curta por evento, pensada para caber na tela do celular:
 
 ```
-19:24:57 INFO  handle         mensagem recebida de=5565996218293 chat=privado tipo=texto chars=2
-19:24:57 INFO  handle         resposta automática de=5565996218293 origem=preset
-19:24:57 INFO  cmd            comando executado cmd=ping de=5565996218293 ms=0
-19:24:57 WARN  cmd            recusado: só o dono cmd=desligar de=5599888888888
-19:24:58 INFO  stickerMaker   figurinha criada ms=412 kb=38
+19:24:57 handle   msg em grupo de=Gui tipo=texto n=12
+19:24:57 handle   resposta automática origem=preset
+19:24:57 cmd      executado cmd=ping de=Gui ms=266
+19:24:57 cmd      WARN recusado: só o dono cmd=desligar de=João
+19:24:58 sticker  figurinha criada ms=412 kb=38
 ```
 
-Formato: `hora NÍVEL módulo mensagem campos=valor`.
+Formato: `hora módulo [NÍVEL] mensagem campos=valor`. O nível só aparece quando **não** é `INFO` — a cor já o diferencia, e assim a linha cabe na tela de um celular.
+
+O campo `de` mostra o nome do contato quando existe. O número completo (`num`) fica de fora da tela para encurtar a linha, mas continua no arquivo de log; para vê-lo na tela também, use `LOG_LEVEL=debug`.
 
 **Por que o log estava poluído antes:** o Baileys registra cada nó do protocolo e recebia o mesmo nível do bot, afogando as linhas úteis. Agora ele tem o seu próprio `BAILEYS_LOG_LEVEL`, que vem `silent`. Para investigar problemas de conexão ou pareamento, suba temporariamente:
 
