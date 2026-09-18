@@ -1,0 +1,52 @@
+{
+  "name": "Levanter-MD",
+  "description": "Bot de WhatsApp multi-sessão com respostas automáticas multilíngues, visualização de status, confirmação de leitura, rejeição automática de chamadas e criação de figurinhas.",
+  "repository": "https://github.com/Guixaviertga/WhatsApp-MD",
+  "keywords": ["whatsapp", "bot", "baileys", "node"],
+  "stack": "container",
+  "env": {
+    "SESSION_IDS": {
+      "description": "IDs das sessões do WhatsApp, separados por vírgula.",
+      "value": "principal"
+    },
+    "DEFAULT_LANGUAGE": {
+      "description": "Idioma padrão: pt, en, es, hi, ar, fr, bn, id, ml, ru, tr, ur ou zh.",
+      "value": "pt"
+    },
+    "BOT_PREFIX": {
+      "description": "Prefixo dos comandos do bot.",
+      "value": "."
+    },
+    "LOGIN_METHOD": {
+      "description": "Método de login: qr ou pairing.",
+      "value": "qr"
+    },
+    "PAIRING_NUMBER": {
+      "description": "Número para login por código de pareamento (só com LOGIN_METHOD=pairing).",
+      "value": "",
+      "required": false
+    },
+    "AUTO_READ_MESSAGES": {
+      "description": "Confirmação automática de leitura (true/false).",
+      "value": "true"
+    },
+    "AUTO_VIEW_STATUS": {
+      "description": "Visualização automática de status (true/false).",
+      "value": "true"
+    },
+    "AUTO_REJECT_CALLS": {
+      "description": "Rejeitar chamadas automaticamente (true/false).",
+      "value": "true"
+    },
+    "STICKER_PACK_NAME": {
+      "description": "Nome padrão do pacote de figurinhas.",
+      "value": "Levanter-MD"
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}

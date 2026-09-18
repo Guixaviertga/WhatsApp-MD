@@ -1,0 +1,18 @@
+{
+  "language_name": "Español",
+  "greeting": "¡Hola! 👋 Soy un bot automático. Pronto alguien te responderá.",
+  "menu_title": "📋 *Menú de comandos*",
+  "menu_footer": "Envía un comando usando el prefijo \"{prefix}\"",
+  "cmd_ping": "🏓 ¡Pong! Tiempo de respuesta: {ms} ms",
+  "cmd_lang_usage": "Uso: {prefix}lang <código>\nIdiomas disponibles: {available}",
+  "cmd_lang_set": "✅ Idioma de este chat configurado a: {language}",
+  "cmd_lang_invalid": "❌ Idioma inválido. Idiomas disponibles: {available}",
+  "cmd_sticker_usage": "📎 Envía o responde a una imagen/video con {prefix}sticker para crear un sticker.",
+  "cmd_sticker_processing": "⏳ Creando tu figurita...",
+  "cmd_sticker_error": "❌ No se pudo crear la figurita. Intenta de nuevo con una imagen o un video corto.",
+  "cmd_stickerpack_usage": "📦 Responde a varias imágenes con {prefix}pack <nombre> o envía un álbum para crear un paquete de figuritas.",
+  "cmd_unknown": "❓ Comando no reconocido. Envía {prefix}menu para ver la lista de comandos.",
+  "call_rejected": "📵 Las llamadas de voz/video no son atendidas por este número automatizado. Envía un mensaje de texto.",
+  "welcome_message": "👋 ¡Bienvenido/a, {user}! Qué bueno tenerte en {group}.",
+  "goodbye_message": "😢 {user} salió de {group}. ¡Hasta pronto!"
+}

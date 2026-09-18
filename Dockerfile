@@ -17,4 +17,4 @@ COPY . .
 # container — monte um volume em /app/sessions.
 VOLUME ["/app/sessions"]
 
-CMD ["node", "src/index.js"]
+CMD ["node", "index.js"]

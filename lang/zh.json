@@ -1,0 +1,18 @@
+{
+  "language_name": "中文",
+  "greeting": "你好！👋 我是自动机器人，很快会有人回复你。",
+  "menu_title": "📋 *命令菜单*",
+  "menu_footer": "使用前缀 \"{prefix}\" 发送命令",
+  "cmd_ping": "🏓 Pong！响应时间：{ms} 毫秒",
+  "cmd_lang_usage": "用法：{prefix}lang <代码>\n可用语言：{available}",
+  "cmd_lang_set": "✅ 此聊天的语言已设置为：{language}",
+  "cmd_lang_invalid": "❌ 语言无效。可用语言：{available}",
+  "cmd_sticker_usage": "📎 发送或回复一张图片/视频并附上 {prefix}sticker 即可制作贴纸。",
+  "cmd_sticker_processing": "⏳ 正在制作您的贴纸...",
+  "cmd_sticker_error": "❌ 无法制作贴纸。请使用图片或短视频重试。",
+  "cmd_stickerpack_usage": "📦 回复多张图片并附上 {prefix}pack <名称>，或发送相册以创建贴纸包。",
+  "cmd_unknown": "❓ 未知命令。发送 {prefix}menu 查看命令列表。",
+  "call_rejected": "📵 此自动号码不接听语音/视频通话，请发送文字消息。",
+  "welcome_message": "👋 欢迎，{user}！很高兴你加入 {group}。",
+  "goodbye_message": "😢 {user} 已离开 {group}，后会有期！"
+}

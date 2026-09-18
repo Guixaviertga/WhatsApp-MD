@@ -1,12 +1,12 @@
 {
-  "name": "whatsapp-md",
+  "name": "levanter-md",
   "version": "1.0.0",
   "description": "Bot de WhatsApp em Node.js com suporte a múltiplas sessões, respostas automáticas multilíngues, visualização de status, confirmação de leitura, rejeição automática de chamadas e criação de figurinhas.",
-  "main": "src/index.js",
+  "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "node --watch src/index.js"
+    "start": "node index.js",
+    "dev": "node --watch index.js"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -17,12 +17,15 @@
     "baileys",
     "multi-session",
     "termux",
-    "pterodactyl"
+    "pterodactyl",
+    "heroku"
   ],
   "license": "MIT",
   "dependencies": {
     "@whiskeysockets/baileys": "^6.7.9",
     "dotenv": "^16.4.5",
+    "express": "^5.0.0",
+    "lowdb": "1.0.0",
     "node-webpmux": "^3.2.1",
     "pino": "^9.4.0",
     "qrcode-terminal": "^0.12.0"

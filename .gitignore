@@ -1,9 +1,17 @@
 node_modules/
 sessions/*/
 !sessions/.gitkeep
+database/
 .env
+config.json
 *.log
 npm-debug.log*
 .DS_Store
 tmp/
 data/stickers-cache/
+
+# Plugins externos instalados em runtime (via Gist etc.), exceto os
+# arquivos que mantêm a pasta versionada.
+eplugins/*
+!eplugins/.gitkeep
+!eplugins/README.md

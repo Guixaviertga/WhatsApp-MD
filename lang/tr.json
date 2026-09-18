@@ -1,0 +1,18 @@
+{
+  "language_name": "Türkçe",
+  "greeting": "Merhaba! 👋 Ben otomatik bir botum. Yakında biri size yanıt verecek.",
+  "menu_title": "📋 *Komut menüsü*",
+  "menu_footer": "\"{prefix}\" önekini kullanarak bir komut gönderin",
+  "cmd_ping": "🏓 Pong! Yanıt süresi: {ms} ms",
+  "cmd_lang_usage": "Kullanım: {prefix}lang <kod>\nMevcut diller: {available}",
+  "cmd_lang_set": "✅ Bu sohbetin dili şu şekilde ayarlandı: {language}",
+  "cmd_lang_invalid": "❌ Geçersiz dil. Mevcut diller: {available}",
+  "cmd_sticker_usage": "📎 Bir sticker oluşturmak için bir resme/videoya {prefix}sticker ile yanıt verin.",
+  "cmd_sticker_processing": "⏳ Sticker'ınız oluşturuluyor...",
+  "cmd_sticker_error": "❌ Sticker oluşturulamadı. Bir resim veya kısa bir video ile tekrar deneyin.",
+  "cmd_stickerpack_usage": "📦 Sticker paketi oluşturmak için birden fazla resme {prefix}pack <isim> ile yanıt verin veya bir albüm gönderin.",
+  "cmd_unknown": "❓ Bilinmeyen komut. Komut listesini görmek için {prefix}menu gönderin.",
+  "call_rejected": "📵 Bu otomatik numara sesli/görüntülü aramalara cevap vermiyor. Lütfen bir metin mesajı gönderin.",
+  "welcome_message": "👋 Hoş geldin, {user}! {group} grubunda seni görmek güzel.",
+  "goodbye_message": "😢 {user}, {group} grubundan ayrıldı. Görüşmek üzere!"
+}

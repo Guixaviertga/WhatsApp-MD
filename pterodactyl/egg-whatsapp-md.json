@@ -23,7 +23,7 @@
   },
   "scripts": {
     "installation": {
-      "script": "#!/bin/bash\ncd /mnt/server\napt-get update && apt-get install -y ffmpeg || true\nif [ ! -f .env ] && [ -f .env.example ]; then cp .env.example .env; fi\nnpm install\necho 'Instalacao concluida. Edite o .env com suas variaveis e reinicie o servidor.'\n",
+      "script": "#!/bin/bash\ncd /mnt/server\napt-get update && apt-get install -y ffmpeg || true\nif [ ! -f .env ] && [ -f config.env.example ]; then cp config.env.example .env; fi\nnpm install\necho 'Instalacao concluida. Edite o .env com suas variaveis e reinicie o servidor.'\n",
       "container": "node:20-slim",
       "entrypoint": "bash"
     }

@@ -1,0 +1,18 @@
+{
+  "language_name": "Bahasa Indonesia",
+  "greeting": "Halo! 👋 Saya bot otomatis. Seseorang akan segera membalas Anda.",
+  "menu_title": "📋 *Menu perintah*",
+  "menu_footer": "Kirim perintah menggunakan awalan \"{prefix}\"",
+  "cmd_ping": "🏓 Pong! Waktu respons: {ms} ms",
+  "cmd_lang_usage": "Penggunaan: {prefix}lang <kode>\nBahasa tersedia: {available}",
+  "cmd_lang_set": "✅ Bahasa chat ini diatur ke: {language}",
+  "cmd_lang_invalid": "❌ Bahasa tidak valid. Bahasa tersedia: {available}",
+  "cmd_sticker_usage": "📎 Kirim atau balas gambar/video dengan {prefix}sticker untuk membuat stiker.",
+  "cmd_sticker_processing": "⏳ Membuat stiker Anda...",
+  "cmd_sticker_error": "❌ Tidak dapat membuat stiker. Coba lagi dengan gambar atau video pendek.",
+  "cmd_stickerpack_usage": "📦 Balas beberapa gambar dengan {prefix}pack <nama> atau kirim album untuk membuat paket stiker.",
+  "cmd_unknown": "❓ Perintah tidak dikenal. Kirim {prefix}menu untuk melihat daftar perintah.",
+  "call_rejected": "📵 Panggilan suara/video tidak dijawab oleh nomor otomatis ini. Silakan kirim pesan teks.",
+  "welcome_message": "👋 Selamat datang, {user}! Senang Anda bergabung di {group}.",
+  "goodbye_message": "😢 {user} telah keluar dari {group}. Sampai jumpa!"
+}
