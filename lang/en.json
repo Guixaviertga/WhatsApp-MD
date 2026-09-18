@@ -7,7 +7,7 @@
   "cmd_lang_usage": "Usage: {prefix}lang <code>\nAvailable languages: {available}",
   "cmd_lang_set": "✅ Language for this chat set to: {language}",
   "cmd_lang_invalid": "❌ Invalid language. Available languages: {available}",
-  "cmd_sticker_usage": "📎 Send or reply to an image/video with {prefix}sticker to create a sticker.",
+  "cmd_sticker_usage": "📎 Send or reply to an image/video with {prefix}sticker to create a sticker.\nFlags: -crop (default) / -full / -circle / -borda",
   "cmd_sticker_processing": "⏳ Creating your sticker...",
   "cmd_sticker_error": "❌ Could not create the sticker. Try again with an image or a short video.",
   "cmd_stickerpack_usage": "📦 Reply to several images with {prefix}pack <name> or send an album to create a sticker pack.",
@@ -44,5 +44,12 @@
   "cmd_promote_desc": "Promotes someone to admin",
   "cmd_demote_desc": "Removes admin rights",
   "cmd_close_desc": "Closes the group (admins only)",
-  "cmd_open_desc": "Opens the group (everyone can talk)"
+  "cmd_open_desc": "Opens the group (everyone can talk)",
+  "cmd_circle_desc": "Turns a photo/video into a circular sticker",
+  "cmd_circle_usage": "⭕ Reply to a photo or video with this command to turn it into a circular sticker.",
+  "cmd_steal_desc": "Steals the quoted sticker, replacing pack/author with yours",
+  "cmd_steal_usage": "🥷 Reply to a sticker with this command to make it yours.",
+  "cmd_rename_desc": "Steals the sticker with a custom pack/author (remembers yours): rename Pack / Author",
+  "cmd_rename_usage": "🥷 Reply to a sticker with \"{prefix}rename Pack / Author\".\nSaved once — next time, just \"{prefix}rename\" alone reuses it.",
+  "cmd_rename_saved": "✅ Saved! Next time, *rename* alone will use \"{pack} / {author}\"."
 }

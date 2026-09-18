@@ -7,7 +7,7 @@
   "cmd_lang_usage": "Kullanım: {prefix}lang <kod>\nMevcut diller: {available}",
   "cmd_lang_set": "✅ Bu sohbetin dili şu şekilde ayarlandı: {language}",
   "cmd_lang_invalid": "❌ Geçersiz dil. Mevcut diller: {available}",
-  "cmd_sticker_usage": "📎 Bir sticker oluşturmak için bir resme/videoya {prefix}sticker ile yanıt verin.",
+  "cmd_sticker_usage": "📎 Bir sticker oluşturmak için bir resme/videoya {prefix}sticker ile yanıt verin.\nBayraklar: -crop (varsayılan) / -full / -circle / -borda",
   "cmd_sticker_processing": "⏳ Sticker'ınız oluşturuluyor...",
   "cmd_sticker_error": "❌ Sticker oluşturulamadı. Bir resim veya kısa bir video ile tekrar deneyin.",
   "cmd_stickerpack_usage": "📦 Sticker paketi oluşturmak için birden fazla resme {prefix}pack <isim> ile yanıt verin veya bir albüm gönderin.",
@@ -44,5 +44,12 @@
   "cmd_promote_desc": "Birini yönetici yapar",
   "cmd_demote_desc": "Yöneticilik yetkisini alır",
   "cmd_close_desc": "Grubu kapatır (sadece yöneticiler)",
-  "cmd_open_desc": "Grubu açar (herkes yazabilir)"
+  "cmd_open_desc": "Grubu açar (herkes yazabilir)",
+  "cmd_circle_desc": "Fotoğrafı/videoyu yuvarlak sticker yapar",
+  "cmd_circle_usage": "⭕ Bir fotoğraf veya videoya bu komutla yanıt verin, yuvarlak sticker olsun.",
+  "cmd_steal_desc": "Alıntılanan sticker'ı çalar, paket/yazarı seninkiyle değiştirir",
+  "cmd_steal_usage": "🥷 Bir sticker'a bu komutla yanıt verin, sizin olsun.",
+  "cmd_rename_desc": "Sticker'ı özel paket/yazarla çalar (hatırlar): rename Paket / Yazar",
+  "cmd_rename_usage": "🥷 Bir sticker'a \"{prefix}rename Paket / Yazar\" ile yanıt verin.\nBir kez kaydedilir — sonrakinde sadece \"{prefix}rename\" yeterli.",
+  "cmd_rename_saved": "✅ Kaydedildi! Sonrakinde, tek başına *rename* \"{pack} / {author}\" kullanacak."
 }

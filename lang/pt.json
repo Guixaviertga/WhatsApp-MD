@@ -7,7 +7,7 @@
   "cmd_lang_usage": "Uso: {prefix}lang <código>\nIdiomas disponíveis: {available}",
   "cmd_lang_set": "✅ Idioma deste chat definido para: {language}",
   "cmd_lang_invalid": "❌ Idioma inválido. Idiomas disponíveis: {available}",
-  "cmd_sticker_usage": "📎 Envie ou responda a uma imagem/vídeo com o comando {prefix}sticker para criar uma figurinha.",
+  "cmd_sticker_usage": "📎 Envie ou responda a uma imagem/vídeo com o comando {prefix}sticker para criar uma figurinha.\nFlags: -crop (padrão) / -full / -circle / -borda",
   "cmd_sticker_processing": "⏳ Criando sua figurinha...",
   "cmd_sticker_error": "❌ Não foi possível criar a figurinha. Tente novamente com uma imagem ou vídeo curto.",
   "cmd_stickerpack_usage": "📦 Responda a várias imagens com {prefix}pack <nome> ou envie um álbum para criar um pacote de figurinhas.",
@@ -44,5 +44,12 @@
   "cmd_promote_desc": "Promove alguém a administrador",
   "cmd_demote_desc": "Remove o cargo de administrador",
   "cmd_close_desc": "Fecha o grupo (só admins falam)",
-  "cmd_open_desc": "Abre o grupo (todos falam)"
+  "cmd_open_desc": "Abre o grupo (todos falam)",
+  "cmd_circle_desc": "Transforma foto/vídeo em figurinha circular",
+  "cmd_circle_usage": "⭕ Responda a uma foto ou vídeo com este comando para transformar em figurinha circular.",
+  "cmd_steal_desc": "Rouba a figurinha citada, trocando pack/autor pelo seu",
+  "cmd_steal_usage": "🥷 Responda a uma figurinha com este comando para pegá-la para você.",
+  "cmd_rename_desc": "Rouba a figurinha com pack/autor customizado (lembra o seu): rename Pack / Autor",
+  "cmd_rename_usage": "🥷 Responda a uma figurinha com \"{prefix}rename Pack / Autor\".\nSalva uma vez — da próxima, só \"{prefix}rename\" sozinho já usa o mesmo.",
+  "cmd_rename_saved": "✅ Salvo! Da próxima, *rename* sozinho já usa \"{pack} / {author}\"."
 }

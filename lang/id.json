@@ -7,7 +7,7 @@
   "cmd_lang_usage": "Penggunaan: {prefix}lang <kode>\nBahasa tersedia: {available}",
   "cmd_lang_set": "✅ Bahasa chat ini diatur ke: {language}",
   "cmd_lang_invalid": "❌ Bahasa tidak valid. Bahasa tersedia: {available}",
-  "cmd_sticker_usage": "📎 Kirim atau balas gambar/video dengan {prefix}sticker untuk membuat stiker.",
+  "cmd_sticker_usage": "📎 Kirim atau balas gambar/video dengan {prefix}sticker untuk membuat stiker.\nFlag: -crop (default) / -full / -circle / -borda",
   "cmd_sticker_processing": "⏳ Membuat stiker Anda...",
   "cmd_sticker_error": "❌ Tidak dapat membuat stiker. Coba lagi dengan gambar atau video pendek.",
   "cmd_stickerpack_usage": "📦 Balas beberapa gambar dengan {prefix}pack <nama> atau kirim album untuk membuat paket stiker.",
@@ -44,5 +44,12 @@
   "cmd_promote_desc": "Menjadikan seseorang admin",
   "cmd_demote_desc": "Mencabut hak admin",
   "cmd_close_desc": "Menutup grup (hanya admin)",
-  "cmd_open_desc": "Membuka grup (semua bisa bicara)"
+  "cmd_open_desc": "Membuka grup (semua bisa bicara)",
+  "cmd_circle_desc": "Mengubah foto/video menjadi stiker bundar",
+  "cmd_circle_usage": "⭕ Balas foto atau video dengan perintah ini untuk mengubahnya jadi stiker bundar.",
+  "cmd_steal_desc": "Mencuri stiker yang dikutip, mengganti paket/penulis dengan milik Anda",
+  "cmd_steal_usage": "🥷 Balas stiker dengan perintah ini untuk menjadikannya milik Anda.",
+  "cmd_rename_desc": "Mencuri stiker dengan paket/penulis kustom (diingat): rename Paket / Penulis",
+  "cmd_rename_usage": "🥷 Balas stiker dengan \"{prefix}rename Paket / Penulis\".\nTersimpan sekali — lain kali cukup \"{prefix}rename\" saja.",
+  "cmd_rename_saved": "✅ Tersimpan! Lain kali, *rename* saja akan pakai \"{pack} / {author}\"."
 }

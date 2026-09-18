@@ -146,6 +146,11 @@ Se uma sessão ficar sem número, o bot avisa no console em vez de gerar um cód
 | `.sticker` | Cria uma figurinha (envie ou responda a uma imagem/vídeo) |
 | `.pack <nome>` | Inicia a coleta de um pacote de figurinhas personalizado |
 | `.pack fim` | Encerra a coleta e informa quantas figurinhas foram criadas |
+| `.circle` / `.circulo` | Figurinha circular (mesmo que `.sticker -circle`) |
+| `.steal` / `.roubar` | Rouba a figurinha citada, trocando pack/autor pelos seus (`STICKER_PACK_NAME`/`STICKER_PACK_AUTHOR`) |
+| `.rename Pack / Autor` | Rouba a figurinha com pack/autor customizado — salva por usuário, e nas próximas vezes `.rename` sozinho já reusa |
+
+**Flags de estilo em `.sticker`:** `-crop` (padrão, cobre sem borda) / `-full` (mostra tudo, com borda transparente) / `-circle` / `-borda` (cantos arredondados). Ex.: `.sticker -full`.
 
 ### Administração de grupo
 
@@ -243,7 +248,7 @@ Arquivos mais antigos que `LOG_RETENTION_DAYS` são apagados quando o bot inicia
 
 ## Banco de dados (lowdb)
 
-`lib/db/index.js` mantém um único arquivo `database/db.json` com uma coleção por área (sessões, filtros, avisos, mute, votos, boas-vindas, antilink). Cada `lib/db/<nome>.js` expõe funções simples de CRUD sobre a sua coleção — sem depender de nenhum serviço externo, ideal para Termux.
+`lib/db/index.js` mantém um único arquivo `database/db.json` com uma coleção por área (sessões, filtros, avisos, mute, votos, boas-vindas, antilink, pack/autor salvo pelo `.rename`). Cada `lib/db/<nome>.js` expõe funções simples de CRUD sobre a sua coleção — sem depender de nenhum serviço externo, ideal para Termux.
 
 ## Próximos passos (plugins ainda não incluídos)
 
