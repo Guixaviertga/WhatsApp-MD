@@ -11,6 +11,19 @@ async function main() {
     'Iniciando Levanter-MD',
   );
 
+  // Aviso visível (não só no log JSON) com a configuração de login
+  // realmente carregada — ajuda a diagnosticar rapidamente quando o
+  // .env/config.json editado não é o que o processo está lendo.
+  console.log(`\n🔧 Método de login: ${config.loginMethod}`);
+  if (config.loginMethod === 'pairing') {
+    console.log(
+      config.pairingNumber
+        ? `🔧 Número de pareamento: ${config.pairingNumber}`
+        : '⚠️  LOGIN_METHOD=pairing mas PAIRING_NUMBER está vazio — defina-o no .env/config.json.',
+    );
+  }
+  console.log('');
+
   await client.startAll();
   startApi();
 
