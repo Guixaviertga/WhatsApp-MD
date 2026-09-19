@@ -51,5 +51,8 @@
   "cmd_steal_usage": "🥷 Balas stiker dengan perintah ini untuk menjadikannya milik Anda.",
   "cmd_rename_desc": "Mencuri stiker dengan paket/penulis kustom (diingat): rename Paket / Penulis",
   "cmd_rename_usage": "🥷 Balas stiker dengan \"{prefix}rename Paket / Penulis\".\nTersimpan sekali — lain kali cukup \"{prefix}rename\" saja.",
-  "cmd_rename_saved": "✅ Tersimpan! Lain kali, *rename* saja akan pakai \"{pack} / {author}\"."
+  "cmd_rename_saved": "✅ Tersimpan! Lain kali, *rename* saja akan pakai \"{pack} / {author}\".",
+  "cmd_attp_desc": "Membuat stiker animasi dari teks",
+  "cmd_attp_usage": "✍️ Gunakan {prefix}attp <teks> atau balas sebuah pesan untuk membuat stiker animasi.",
+  "cmd_attp_muito_longo": "❌ Teks terlalu panjang (maksimal {limite} karakter)."
 }

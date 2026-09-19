@@ -51,5 +51,8 @@
   "cmd_steal_usage": "🥷 رد على ملصق بهذا الأمر لجعله ملكًا لك.",
   "cmd_rename_desc": "يسرق الملصق بحزمة/ناشر مخصص (يتذكر الخاص بك): rename الحزمة / الناشر",
   "cmd_rename_usage": "🥷 رد على ملصق بـ \"{prefix}rename الحزمة / الناشر\".\nيُحفظ مرة واحدة — في المرة القادمة، \"{prefix}rename\" وحدها تكفي.",
-  "cmd_rename_saved": "✅ تم الحفظ! في المرة القادمة، ستستخدم *rename* وحدها \"{pack} / {author}\"."
+  "cmd_rename_saved": "✅ تم الحفظ! في المرة القادمة، ستستخدم *rename* وحدها \"{pack} / {author}\".",
+  "cmd_attp_desc": "ينشئ ملصقًا متحركًا من نص",
+  "cmd_attp_usage": "✍️ استخدم {prefix}attp <نص> أو رد على رسالة لإنشاء ملصق متحرك.",
+  "cmd_attp_muito_longo": "❌ النص طويل جدًا (بحد أقصى {limite} حرفًا)."
 }

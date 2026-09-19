@@ -51,5 +51,8 @@
   "cmd_steal_usage": "🥷 Répondez à un sticker avec cette commande pour vous l’approprier.",
   "cmd_rename_desc": "Vole le sticker avec un pack/auteur personnalisé (mémorisé) : rename Pack / Auteur",
   "cmd_rename_usage": "🥷 Répondez à un sticker avec \"{prefix}rename Pack / Auteur\".\nEnregistré une fois — ensuite, \"{prefix}rename\" seul suffit.",
-  "cmd_rename_saved": "✅ Enregistré ! La prochaine fois, *rename* seul utilisera \"{pack} / {author}\"."
+  "cmd_rename_saved": "✅ Enregistré ! La prochaine fois, *rename* seul utilisera \"{pack} / {author}\".",
+  "cmd_attp_desc": "Crée un sticker animé à partir d'un texte",
+  "cmd_attp_usage": "✍️ Utilisez {prefix}attp <texte> ou répondez à un message pour créer un sticker animé.",
+  "cmd_attp_muito_longo": "❌ Texte trop long (maximum {limite} caractères)."
 }
