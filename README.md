@@ -146,11 +146,11 @@ Se uma sessão ficar sem número, o bot avisa no console em vez de gerar um cód
 | `.sticker` | Cria uma figurinha (envie ou responda a uma imagem/vídeo) |
 | `.pack <nome>` | Inicia a coleta de um pacote de figurinhas personalizado |
 | `.pack fim` | Encerra a coleta e informa quantas figurinhas foram criadas |
-| `.circle` / `.circulo` | Figurinha circular (mesmo que `.sticker -circle`) |
+| `.circle` / `.circulo` | Figurinha circular (mesmo que `.sticker circle`) |
 | `.steal` / `.roubar` | Rouba a figurinha citada, trocando pack/autor pelos seus (`STICKER_PACK_NAME`/`STICKER_PACK_AUTHOR`) |
 | `.rename Pack / Autor` | Rouba a figurinha com pack/autor customizado — salva por usuário, e nas próximas vezes `.rename` sozinho já reusa |
 
-**Flags de estilo em `.sticker`:** `-crop` (padrão, cobre sem borda) / `-full` (mostra tudo, com borda transparente) / `-circle` / `-borda` (cantos arredondados). Ex.: `.sticker -full`.
+**Estilos em `.sticker`:** `crop` (padrão, cobre sem borda) / `full` (mostra tudo, com borda transparente) / `circle` / `borda` (cantos arredondados). Ex.: `.sticker full`.
 
 ### Administração de grupo
 

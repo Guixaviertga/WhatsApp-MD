@@ -7,7 +7,7 @@
   "cmd_lang_usage": "ব্যবহার: {prefix}lang <কোড>\nউপলব্ধ ভাষা: {available}",
   "cmd_lang_set": "✅ এই চ্যাটের ভাষা সেট করা হয়েছে: {language}",
   "cmd_lang_invalid": "❌ অবৈধ ভাষা। উপলব্ধ ভাষা: {available}",
-  "cmd_sticker_usage": "📎 স্টিকার তৈরি করতে একটি ছবি/ভিডিওতে {prefix}sticker দিয়ে উত্তর দিন।\nফ্ল্যাগ: -crop (ডিফল্ট) / -full / -circle / -borda",
+  "cmd_sticker_usage": "📎 স্টিকার তৈরি করতে একটি ছবি/ভিডিওতে {prefix}sticker দিয়ে উত্তর দিন।\nফ্ল্যাগ: crop (ডিফল্ট) / full / circle / borda",
   "cmd_sticker_processing": "⏳ আপনার স্টিকার তৈরি করা হচ্ছে...",
   "cmd_sticker_error": "❌ স্টিকার তৈরি করা যায়নি। একটি ছবি বা ছোট ভিডিও দিয়ে আবার চেষ্টা করুন।",
   "cmd_stickerpack_usage": "📦 স্টিকার প্যাক তৈরি করতে একাধিক ছবিতে {prefix}pack <নাম> দিয়ে উত্তর দিন বা একটি অ্যালবাম পাঠান।",

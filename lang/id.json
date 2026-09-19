@@ -7,7 +7,7 @@
   "cmd_lang_usage": "Penggunaan: {prefix}lang <kode>\nBahasa tersedia: {available}",
   "cmd_lang_set": "✅ Bahasa chat ini diatur ke: {language}",
   "cmd_lang_invalid": "❌ Bahasa tidak valid. Bahasa tersedia: {available}",
-  "cmd_sticker_usage": "📎 Kirim atau balas gambar/video dengan {prefix}sticker untuk membuat stiker.\nFlag: -crop (default) / -full / -circle / -borda",
+  "cmd_sticker_usage": "📎 Kirim atau balas gambar/video dengan {prefix}sticker untuk membuat stiker.\nFlag: crop (default) / full / circle / borda",
   "cmd_sticker_processing": "⏳ Membuat stiker Anda...",
   "cmd_sticker_error": "❌ Tidak dapat membuat stiker. Coba lagi dengan gambar atau video pendek.",
   "cmd_stickerpack_usage": "📦 Balas beberapa gambar dengan {prefix}pack <nama> atau kirim album untuk membuat paket stiker.",

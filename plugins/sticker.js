@@ -8,8 +8,10 @@ const logger = createLogger('sticker');
 
 const STOP_WORDS = ['fim', 'end', 'stop', 'done', 'parar'];
 
-// Flags de estilo aceitas em ".sticker -full", etc. Não são traduzidas: são
-// literais, como os próprios nomes de comando.
+// Estilos aceitos em ".sticker full", etc. Não são traduzidos: são
+// literais, como os próprios nomes de comando. O traço continua sendo
+// aceito (".sticker -full") porque quem já usava assim não precisa
+// reaprender — ver detectarEstilo.
 const FLAGS_ESTILO = {
   crop: 'crop', full: 'full', circle: 'circle', circulo: 'circle', borda: 'rounded', arredondada: 'rounded',
 };

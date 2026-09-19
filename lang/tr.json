@@ -7,7 +7,7 @@
   "cmd_lang_usage": "Kullanım: {prefix}lang <kod>\nMevcut diller: {available}",
   "cmd_lang_set": "✅ Bu sohbetin dili şu şekilde ayarlandı: {language}",
   "cmd_lang_invalid": "❌ Geçersiz dil. Mevcut diller: {available}",
-  "cmd_sticker_usage": "📎 Bir sticker oluşturmak için bir resme/videoya {prefix}sticker ile yanıt verin.\nBayraklar: -crop (varsayılan) / -full / -circle / -borda",
+  "cmd_sticker_usage": "📎 Bir sticker oluşturmak için bir resme/videoya {prefix}sticker ile yanıt verin.\nBayraklar: crop (varsayılan) / full / circle / borda",
   "cmd_sticker_processing": "⏳ Sticker'ınız oluşturuluyor...",
   "cmd_sticker_error": "❌ Sticker oluşturulamadı. Bir resim veya kısa bir video ile tekrar deneyin.",
   "cmd_stickerpack_usage": "📦 Sticker paketi oluşturmak için birden fazla resme {prefix}pack <isim> ile yanıt verin veya bir albüm gönderin.",

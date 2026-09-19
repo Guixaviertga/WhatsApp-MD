@@ -7,7 +7,7 @@
   "cmd_lang_usage": "Utilisation : {prefix}lang <code>\nLangues disponibles : {available}",
   "cmd_lang_set": "✅ Langue de ce chat définie sur : {language}",
   "cmd_lang_invalid": "❌ Langue invalide. Langues disponibles : {available}",
-  "cmd_sticker_usage": "📎 Envoyez ou répondez à une image/vidéo avec {prefix}sticker pour créer un sticker.\nOptions : -crop (défaut) / -full / -circle / -borda",
+  "cmd_sticker_usage": "📎 Envoyez ou répondez à une image/vidéo avec {prefix}sticker pour créer un sticker.\nOptions : crop (défaut) / full / circle / borda",
   "cmd_sticker_processing": "⏳ Création de votre sticker...",
   "cmd_sticker_error": "❌ Impossible de créer le sticker. Réessayez avec une image ou une courte vidéo.",
   "cmd_stickerpack_usage": "📦 Répondez à plusieurs images avec {prefix}pack <nom> ou envoyez un album pour créer un pack de stickers.",

@@ -7,7 +7,7 @@
   "cmd_lang_usage": "用法：{prefix}lang <代码>\n可用语言：{available}",
   "cmd_lang_set": "✅ 此聊天的语言已设置为：{language}",
   "cmd_lang_invalid": "❌ 语言无效。可用语言：{available}",
-  "cmd_sticker_usage": "📎 发送或回复一张图片/视频并附上 {prefix}sticker 即可制作贴纸。\n参数：-crop（默认）/ -full / -circle / -borda",
+  "cmd_sticker_usage": "📎 发送或回复一张图片/视频并附上 {prefix}sticker 即可制作贴纸。\n参数：crop（默认）/ full / circle / borda",
   "cmd_sticker_processing": "⏳ 正在制作您的贴纸...",
   "cmd_sticker_error": "❌ 无法制作贴纸。请使用图片或短视频重试。",
   "cmd_stickerpack_usage": "📦 回复多张图片并附上 {prefix}pack <名称>，或发送相册以创建贴纸包。",
