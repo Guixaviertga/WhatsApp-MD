@@ -105,6 +105,7 @@ Use `.env` **ou** `config.json` (o `.env` tem prioridade se os dois existirem �
 | `AUTO_REJECT_CALLS` | Rejeitar chamadas automaticamente | `true` |
 | `AUTO_REPLY_ENABLED` | Ativa as respostas automáticas por palavra-chave (filtros por chat) | `true` |
 | `STICKER_PACK_NAME` / `STICKER_PACK_AUTHOR` | Metadados padrão das figurinhas | `Levanter-MD` / `Meu Bot` |
+| `STICKER_MAX_DURATION` | Trecho máximo (segundos) aproveitado de vídeo/gif | `15` |
 | `API_ENABLED` / `API_PORT` | Liga o esqueleto de API HTTP (`lib/api.js`, ainda sem rotas) | `false` / `3000` |
 | `LOG_LEVEL` | Nível de log do bot (`trace`, `debug`, `info`, `warn`, `error`) | `info` |
 | `LOG_PRETTY` | `true` = saída colorida e compacta; `false` = JSON cru (para painéis) | `true` |

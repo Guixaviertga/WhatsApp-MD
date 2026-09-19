@@ -96,6 +96,10 @@ const config = {
 
   stickerPackName: pick('STICKER_PACK_NAME', 'Levanter-MD'),
   stickerPackAuthor: pick('STICKER_PACK_AUTHOR', 'Levanter-MD Bot'),
+  // Trecho máximo (em segundos) aproveitado de um vídeo/gif virando
+  // figurinha. Quanto maior, mais frames — e tanto o tempo de conversão
+  // quanto o tamanho final crescem junto com eles.
+  stickerMaxDuration: Number(pick('STICKER_MAX_DURATION', 15)),
 
   apiEnabled: toBool(pick('API_ENABLED'), false),
   apiPort: Number(pick('API_PORT', 3000)),
