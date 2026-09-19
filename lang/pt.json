@@ -51,8 +51,5 @@
   "cmd_steal_usage": "🥷 Responda a uma figurinha com este comando para pegá-la para você.",
   "cmd_rename_desc": "Rouba a figurinha com pack/autor customizado (lembra o seu): rename Pack / Autor",
   "cmd_rename_usage": "🥷 Responda a uma figurinha com \"{prefix}rename Pack / Autor\".\nSalva uma vez — da próxima, só \"{prefix}rename\" sozinho já usa o mesmo.",
-  "cmd_rename_saved": "✅ Salvo! Da próxima, *rename* sozinho já usa \"{pack} / {author}\".",
-  "cmd_attp_desc": "Cria uma figurinha animada a partir de um texto",
-  "cmd_attp_usage": "✍️ Use {prefix}attp <texto> ou responda a uma mensagem para criar uma figurinha animada.",
-  "cmd_attp_muito_longo": "❌ Texto muito longo (máximo {limite} caracteres)."
+  "cmd_rename_saved": "✅ Salvo! Da próxima, *rename* sozinho já usa \"{pack} / {author}\"."
 }

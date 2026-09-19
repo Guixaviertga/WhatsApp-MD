@@ -149,11 +149,8 @@ Se uma sessão ficar sem número, o bot avisa no console em vez de gerar um cód
 | `.circle` / `.circulo` | Figurinha circular (mesmo que `.sticker circle`) |
 | `.steal` / `.roubar` | Rouba a figurinha citada, trocando pack/autor pelos seus (`STICKER_PACK_NAME`/`STICKER_PACK_AUTHOR`) |
 | `.rename Pack / Autor` | Rouba a figurinha com pack/autor customizado — salva por usuário, e nas próximas vezes `.rename` sozinho já reusa |
-| `.attp <texto>` / `.texto` | Figurinha animada com o texto trocando de cor. Sem argumento, usa o texto da mensagem respondida |
 
 **Estilos em `.sticker`:** `crop` (padrão, cobre sem borda) / `full` (mostra tudo, com borda transparente) / `circle` / `borda` (cantos arredondados). Ex.: `.sticker full`.
-
-O `.attp` desenha o texto com `pureimage` e monta o GIF com `gif-encoder` — ambos JavaScript puro, sem compilação nativa (o `gifencoder` mais conhecido depende do `canvas`, que exige cairo/pango e é justamente o tipo de dependência que não instala no Termux). O GIF resultante passa pelo mesmo caminho de conversão das outras figurinhas. A fonte usada fica em `media/fonts/` porque nem Termux nem containers mínimos trazem fontes instaladas.
 
 ### Administração de grupo
 

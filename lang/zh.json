@@ -51,8 +51,5 @@
   "cmd_steal_usage": "🥷 回复一张贴纸并使用此命令，使其成为您的。",
   "cmd_rename_desc": "使用自定义包名/作者窃取贴纸（会记住）：rename 包名 / 作者",
   "cmd_rename_usage": "🥷 回复一张贴纸并输入 \"{prefix}rename 包名 / 作者\"。\n保存一次即可 — 下次只需输入 \"{prefix}rename\"。",
-  "cmd_rename_saved": "✅ 已保存！下次单独使用 *rename* 将使用 \"{pack} / {author}\"。",
-  "cmd_attp_desc": "用文字制作动态贴纸",
-  "cmd_attp_usage": "✍️ 使用 {prefix}attp <文字> 或回复一条消息来制作动态贴纸。",
-  "cmd_attp_muito_longo": "❌ 文字太长（最多 {limite} 个字符）。"
+  "cmd_rename_saved": "✅ 已保存！下次单独使用 *rename* 将使用 \"{pack} / {author}\"。"
 }

@@ -25,11 +25,9 @@
     "baileys": "7.0.0-rc14",
     "dotenv": "^16.4.5",
     "express": "^5.0.0",
-    "gif-encoder": "^0.7.2",
     "lowdb": "1.0.0",
     "node-webpmux": "^3.2.1",
     "pino": "^9.4.0",
-    "pureimage": "^0.4.20",
     "qrcode-terminal": "^0.12.0"
   }
 }

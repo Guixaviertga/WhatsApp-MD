@@ -51,8 +51,5 @@
   "cmd_steal_usage": "🥷 Bir sticker'a bu komutla yanıt verin, sizin olsun.",
   "cmd_rename_desc": "Sticker'ı özel paket/yazarla çalar (hatırlar): rename Paket / Yazar",
   "cmd_rename_usage": "🥷 Bir sticker'a \"{prefix}rename Paket / Yazar\" ile yanıt verin.\nBir kez kaydedilir — sonrakinde sadece \"{prefix}rename\" yeterli.",
-  "cmd_rename_saved": "✅ Kaydedildi! Sonrakinde, tek başına *rename* \"{pack} / {author}\" kullanacak.",
-  "cmd_attp_desc": "Metinden animasyonlu çıkartma oluşturur",
-  "cmd_attp_usage": "✍️ Animasyonlu çıkartma oluşturmak için {prefix}attp <metin> yazın veya bir mesajı yanıtlayın.",
-  "cmd_attp_muito_longo": "❌ Metin çok uzun (en fazla {limite} karakter)."
+  "cmd_rename_saved": "✅ Kaydedildi! Sonrakinde, tek başına *rename* \"{pack} / {author}\" kullanacak."
 }
