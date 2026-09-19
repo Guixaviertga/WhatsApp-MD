@@ -2,6 +2,9 @@ const config = require('../lib/config');
 const { downloadMessageMedia } = require('../lib/media');
 const { createSticker } = require('../lib/stickerMaker');
 const stickerPack = require('../lib/stickerPack');
+const { createLogger } = require('../lib/logger');
+
+const logger = createLogger('sticker');
 
 const STOP_WORDS = ['fim', 'end', 'stop', 'done', 'parar'];
 
@@ -27,13 +30,25 @@ const stickerCmd = {
   }) {
     if (!m.hasMedia()) return reply.t('cmd_sticker_usage', { prefix });
 
-    await reply.t('cmd_sticker_processing');
+    // O aviso de "processando" é cosmético: esperar o WhatsApp confirmar
+    // o envio dele antes de começar o download só somava uma ida e volta
+    // de rede ao tempo total.
+    reply.t('cmd_sticker_processing').catch(() => {});
 
+    const inicioDownload = Date.now();
     const buffer = await downloadMessageMedia(sock, m.mediaTarget);
-    const sticker = buffer && (await createSticker(buffer, { estilo: detectarEstilo(match) }));
+    logger.info(
+      { ms: Date.now() - inicioDownload, kb: buffer ? Math.round(buffer.length / 1024) : 0 },
+      'mídia baixada',
+    );
 
+    const sticker = buffer && (await createSticker(buffer, { estilo: detectarEstilo(match) }));
     if (!sticker) return reply.t('cmd_sticker_error');
-    return reply.sticker(sticker);
+
+    const inicioEnvio = Date.now();
+    const enviada = await reply.sticker(sticker);
+    logger.info({ ms: Date.now() - inicioEnvio }, 'figurinha enviada');
+    return enviada;
   },
 };
 
